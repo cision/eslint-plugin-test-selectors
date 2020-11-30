@@ -25,13 +25,6 @@ nanoidMock('nanoid', {
 const id = require('nanoid');
 const suggestedId = id.nanoid();
 
-const defaultParserOptions = {
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
-
 const ruleTester = new RuleTester();
 ruleTester.run('onClick', rule, {
     valid: [
