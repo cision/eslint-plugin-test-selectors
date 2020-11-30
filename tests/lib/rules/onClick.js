@@ -3,6 +3,7 @@
  */
 const rule = require('../../../lib/rules/onClick');
 const RuleTester = require('eslint').RuleTester;
+const parserOptionsMapper = require('../../parserOptionsMapper');
 const {
     defaults,
     errors
@@ -22,32 +23,13 @@ nanoidMock('nanoid', {
 });
 
 const id = require('nanoid');
-var suggestedId = id.nanoid();
+const suggestedId = id.nanoid();
 
 const defaultParserOptions = {
   ecmaVersion: 6,
   ecmaFeatures: {
     jsx: true,
   },
-};
-
-const parserOptionsMapper = function ({
-  code,
-  errors,
-  output,
-  options = [],
-  parserOptions = {},
-}) {
-  return {
-    code,
-    errors,
-    output,
-    options,
-    parserOptions: {
-      ...defaultParserOptions,
-      ...parserOptions,
-    },
-  };
 };
 
 const ruleTester = new RuleTester();
